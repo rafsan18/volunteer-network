@@ -1,0 +1,9 @@
+.add-event-container {
+    height: 100vh;
+}
+
+.main {
+    margin-left: 240px;
+    font-size: 28px;
+    padding: 0px 10px;
+}

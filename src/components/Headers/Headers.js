@@ -11,7 +11,10 @@ const Headers = () => {
         history.push("/login");
     };
 
-    console.log(location);
+    const handleAdminPanel = () => {
+        history.push("/adminPanel/volunteerList");
+    };
+
     return (
         <>
             {location.pathname === "/login" ||
@@ -50,6 +53,7 @@ const Headers = () => {
                             <Button
                                 className=" btn-dark text-light"
                                 variant="outline-success"
+                                onClick={handleAdminPanel}
                             >
                                 Admin
                             </Button>

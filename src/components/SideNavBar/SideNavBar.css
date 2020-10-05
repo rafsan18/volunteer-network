@@ -1,0 +1,39 @@
+.sidenav {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav-link {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #111111;
+    display: block;
+}
+
+.sidenav-link:hover {
+    color: #d1d1d1;
+    text-decoration: none;
+}
+
+.link-container {
+    margin-top: 40px;
+}
+
+.font-icon {
+    height: 16px;
+    margin-bottom: 3px;
+    margin-right: 3px;
+}
+
+.main {
+    margin-left: 160px;
+    font-size: 28px;
+    padding: 0px 10px;
+}

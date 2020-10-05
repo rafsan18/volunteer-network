@@ -5,6 +5,8 @@ import Home from "./components/Home/Home";
 import NoMatch from "./components/NoMatch/NoMatch";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import VolunteerList from "./components/VolunteerList/VolunteerList";
+import AddEvent from "./components/AddEvent/AddEvent";
 
 function App() {
     return (
@@ -21,6 +23,12 @@ function App() {
                 </Route>
                 <Route path="/register">
                     <Register />
+                </Route>
+                <Route path="/adminPanel/volunteerList">
+                    <VolunteerList />
+                </Route>
+                <Route path="/adminPanel/addEvent">
+                    <AddEvent />
                 </Route>
                 <Route path="*">
                     <NoMatch />
