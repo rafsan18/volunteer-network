@@ -1,9 +1,15 @@
 .add-event-container {
     height: 100vh;
+    padding-top: 20px;
 }
 
 .main {
     margin-left: 240px;
     font-size: 28px;
     padding: 0px 10px;
+}
+
+.form-container {
+    margin: 20px 20px 0 20px;
+    display: block;
 }
