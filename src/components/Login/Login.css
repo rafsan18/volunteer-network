@@ -1,0 +1,4 @@
+.toggle-field:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
