@@ -4,7 +4,7 @@ import logo from "../../images/logos/logo.png";
 
 const Headers = () => {
     return (
-        <div className="container-fluid">
+        <div>
             <Navbar expand="lg">
                 <Navbar.Brand href="#home">
                     <img src={logo} className="img-fluid w-25" alt="" />

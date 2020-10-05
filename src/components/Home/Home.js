@@ -12,11 +12,13 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div className="container">
             <Headers></Headers>
-            {events.map((event) => (
-                <Events key={event._id} event={event}></Events>
-            ))}
+            <div className="row mt-5">
+                {events.map((event) => (
+                    <Events key={event._id} event={event}></Events>
+                ))}
+            </div>
         </div>
     );
 };
