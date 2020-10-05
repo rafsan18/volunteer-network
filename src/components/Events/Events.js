@@ -6,7 +6,7 @@ const Events = (props) => {
     const colorString = ["#FFBD3E", "#FF7044", "#3F90FC", "#421FCF"];
 
     return (
-        <div className="col-md-3 mt-4">
+        <div className="col-md-3 col-sm-6 mt-4">
             <Card
                 style={{
                     height: "320px",

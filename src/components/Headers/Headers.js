@@ -14,13 +14,15 @@ const Headers = () => {
     console.log(location);
     return (
         <>
-            {location.pathname === "/login" ? (
+            {location.pathname === "/login" ||
+            location.pathname === "/register" ? (
                 <img
                     src={logo}
                     style={{
                         width: "200px",
                         display: "block",
                         margin: "0px auto",
+                        paddingTop: "30px",
                     }}
                     alt=""
                 />

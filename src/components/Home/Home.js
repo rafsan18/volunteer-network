@@ -12,7 +12,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="container text-center">
+        <div className="container ">
             <Headers></Headers>
             <div className="row mt-5">
                 {events.map((event) => (
