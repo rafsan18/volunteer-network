@@ -2,3 +2,20 @@
     text-decoration: underline;
     cursor: pointer;
 }
+.login-container {
+    max-width: 570px;
+    height: 460px;
+    background-color: #fff;
+    border: 1px solid lightgrey;
+    margin: 0 auto;
+}
+
+.login-container h4 {
+    margin-bottom: 80px;
+}
+
+.login-container button {
+    width: 75%;
+    border-radius: 50px;
+    border: 1px solid #f1f1f1;
+}
