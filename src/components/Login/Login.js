@@ -4,7 +4,11 @@ import googleLogo from "../../images/logos/google.svg";
 import "./Login.css";
 import { UserContext } from "../../App";
 import { useHistory, useLocation } from "react-router-dom";
-import { handleGoogleSignIn, initializeLoginFramework } from "./loginManager";
+import {
+    authToken,
+    handleGoogleSignIn,
+    initializeLoginFramework,
+} from "./loginManager";
 
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -14,10 +18,18 @@ const Login = () => {
     let { from } = location.state || { from: { pathname: "/" } };
 
     initializeLoginFramework();
+
     const googleSignIn = () => {
         handleGoogleSignIn().then((res) => {
             setLoggedInUser(res);
+            storeAuthToken();
             history.replace(from);
+        });
+    };
+
+    const storeAuthToken = () => {
+        authToken().then((res) => {
+            sessionStorage.setItem("token", res);
         });
     };
 

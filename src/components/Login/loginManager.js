@@ -41,3 +41,15 @@ export const signOutFromAccount = () => {
         })
         .catch((error) => {});
 };
+
+export const authToken = () => {
+    return firebase
+        .auth()
+        .currentUser.getIdToken(true)
+        .then(function (idToken) {
+            return idToken;
+        })
+        .catch(function (error) {
+            // Handle error
+        });
+};
