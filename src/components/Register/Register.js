@@ -8,6 +8,7 @@ import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker,
 } from "@material-ui/pickers";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Register = () => {
     const classes = useStyles();
+    const { eventId } = useParams();
+    console.log(eventId);
 
     const [selectedDate, setSelectedDate] = useState(new Date());
 
