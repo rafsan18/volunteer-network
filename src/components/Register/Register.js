@@ -66,9 +66,7 @@ const Register = () => {
             body: JSON.stringify(newRegistration),
         })
             .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-            });
+            .then((data) => {});
 
         history.push("/userSelectionPage");
         e.preventDefault();

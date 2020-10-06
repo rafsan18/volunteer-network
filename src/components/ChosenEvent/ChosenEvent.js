@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ChosenEvent = (props) => {
     const classes = useStyles();
+    const [isCancelled, setIsCancelled] = useState(false);
     const { title, selectedDate, img, _id } = props.ev;
 
     const cancelEvent = (id) => {
@@ -41,12 +42,12 @@ const ChosenEvent = (props) => {
         })
             .then((res) => res.json())
             .then((result) => {
-                console.log("deleted Successfully");
+                setIsCancelled(result);
             });
     };
     return (
         <div className="col-md-4">
-            <Card className={classes.root}>
+            <Card className={isCancelled ? `invisible` : `${classes.root}`}>
                 <CardMedia
                     className={classes.cover}
                     image={img}
