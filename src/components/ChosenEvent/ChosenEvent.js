@@ -43,8 +43,6 @@ const ChosenEvent = (props) => {
             .then((result) => {
                 console.log("deleted Successfully");
             });
-
-        console.log(id);
     };
     return (
         <div className="col-md-4">
