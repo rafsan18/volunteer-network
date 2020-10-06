@@ -1,11 +1,22 @@
-import React from "react";
-import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Button, Form, Nav, Navbar } from "react-bootstrap";
 import { useHistory, useLocation } from "react-router-dom";
+import { UserContext } from "../../App";
 import logo from "../../images/logos/logo.png";
+import { signOutFromAccount } from "../Login/loginManager";
 
 const Headers = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const history = useHistory();
     const location = useLocation();
+
+    const { isSignedIn, name } = loggedInUser;
+
+    const handleSignOut = () => {
+        signOutFromAccount().then((res) => {
+            setLoggedInUser(res);
+        });
+    };
 
     const handleRegister = () => {
         history.push("/login");
@@ -38,18 +49,33 @@ const Headers = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
                             <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#link">Donations</Nav.Link>
                             <Nav.Link href="#link">Events</Nav.Link>
                             <Nav.Link href="#link">Blog</Nav.Link>
+                            {isSignedIn ? (
+                                <Nav.Link href="#link">
+                                    <strong>{name}</strong>
+                                </Nav.Link>
+                            ) : null}
                         </Nav>
                         <Form inline>
-                            <Button
-                                className="mr-1 btn-primary text-light"
-                                variant="outline-success"
-                                onClick={handleRegister}
-                            >
-                                Register
-                            </Button>
+                            {isSignedIn ? (
+                                <Button
+                                    className="mr-1 btn-primary text-light"
+                                    variant="outline-success"
+                                    onClick={handleSignOut}
+                                >
+                                    Sign Out
+                                </Button>
+                            ) : (
+                                <Button
+                                    className="mr-1 btn-primary text-light"
+                                    variant="outline-success"
+                                    onClick={handleRegister}
+                                >
+                                    Register
+                                </Button>
+                            )}
+
                             <Button
                                 className=" btn-dark text-light"
                                 variant="outline-success"

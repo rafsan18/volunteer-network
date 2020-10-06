@@ -1,5 +1,5 @@
 import "date-fns";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Headers from "../Headers/Headers";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -8,7 +8,8 @@ import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker,
 } from "@material-ui/pickers";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { UserContext } from "../../App";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,14 +25,53 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Register = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [event, setEvent] = useState({});
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [description, setDescription] = useState("");
     const classes = useStyles();
     const { eventId } = useParams();
-    console.log(eventId);
+    const history = useHistory();
 
-    const [selectedDate, setSelectedDate] = useState(new Date());
+    const { title, img } = event;
+    const { email, name } = loggedInUser;
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/event/${eventId}`)
+            .then((res) => res.json())
+            .then((data) => setEvent(data));
+    }, [eventId]);
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
+    };
+
+    const handleBlur = (e) => {
+        setDescription(e.target.value);
+    };
+
+    const handleRegistration = (e) => {
+        const newRegistration = {
+            email,
+            name,
+            selectedDate,
+            title,
+            description,
+            img,
+        };
+
+        fetch("http://localhost:5000/addChosenEvent", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newRegistration),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+            });
+
+        history.push("/userSelectionPage");
+        e.preventDefault();
     };
     return (
         <div className="bg-light container-fluid" style={{ height: "100vh" }}>
@@ -55,14 +95,18 @@ const Register = () => {
                         noValidate
                         autoComplete="off"
                     >
-                        <TextField label="Full Name" name="fullName" />
+                        <TextField
+                            label="Full Name"
+                            defaultValue={name}
+                            name="fullName"
+                        />
                         <br />
-                        <TextField label="Username or Email" name="email" />
+                        <TextField
+                            defaultValue={email}
+                            label="Username or Email"
+                            name="email"
+                        />
                         <br />
-
-                        <TextField label="Standard" name="title" />
-                        <br />
-
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                             <KeyboardDatePicker
                                 disableToolbar
@@ -78,14 +122,20 @@ const Register = () => {
                             />
                         </MuiPickersUtilsProvider>
                         <br />
-
-                        <TextField label="Name of volunteering service" />
-                        <br />
-                        <input
-                            className=" btn btn-primary mt-2"
-                            type="submit"
-                            value="Registration"
+                        <TextField
+                            onBlur={handleBlur}
+                            label="Description"
+                            name="description"
                         />
+                        <br />
+                        <TextField value={title} />
+                        <br />
+                        <button
+                            onClick={handleRegistration}
+                            className="btn btn-primary mt-2"
+                        >
+                            Registration
+                        </button>
                     </form>
                 </div>
             </div>
