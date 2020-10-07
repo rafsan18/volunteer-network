@@ -1,9 +1,38 @@
 .volunteer-list-container {
     height: 100vh;
+    padding: 25px;
 }
 
 .main {
     margin-left: 240px;
     font-size: 28px;
     padding: 0px 10px;
+}
+
+.volunteer-list-container > table {
+    margin: 0 auto;
+    background-color: #fff;
+    width: 100%;
+}
+th {
+    font-size: 18px;
+}
+td {
+    font-size: 14px;
+}
+
+td,
+th {
+    padding: 10px;
+}
+
+td > button {
+    background-color: #ff444a;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+td > button:hover {
+    background-color: #b43f43;
 }
