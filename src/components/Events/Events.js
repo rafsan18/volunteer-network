@@ -1,14 +1,15 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./Events.css";
 
 const Events = (props) => {
     const { title, img, _id } = props.event;
     const colorString = ["#FFBD3E", "#FF7044", "#3F90FC", "#421FCF"];
 
     return (
-        <div className="col-md-3 col-sm-6 mt-4">
-            <Link to={`/registerFor/${_id}`}>
+        <div className="col-md-3 col-sm-6 mt-4 event-container">
+            <Link className="event-link" to={`/registerFor/${_id}`}>
                 <Card
                     style={{
                         height: "320px",

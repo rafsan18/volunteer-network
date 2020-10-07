@@ -31,15 +31,15 @@ function App() {
                     <PrivateRoute path="/registerFor/:eventId">
                         <Register />
                     </PrivateRoute>
-                    <Route path="/adminPanel/volunteerList">
+                    <PrivateRoute path="/adminPanel/volunteerList">
                         <VolunteerList />
-                    </Route>
-                    <Route path="/adminPanel/addEvent">
+                    </PrivateRoute>
+                    <PrivateRoute path="/adminPanel/addEvent">
                         <AddEvent />
-                    </Route>
-                    <Route path="/userSelectionPage">
+                    </PrivateRoute>
+                    <PrivateRoute path="/userSelectionPage">
                         <UserSelection></UserSelection>
-                    </Route>
+                    </PrivateRoute>
                     <Route path="*">
                         <NoMatch />
                     </Route>
