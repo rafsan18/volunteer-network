@@ -31,9 +31,9 @@ function App() {
                     <PrivateRoute path="/registerFor/:eventId">
                         <Register />
                     </PrivateRoute>
-                    <Route path="/adminPanel/volunteerList">
+                    <PrivateRoute path="/adminPanel/volunteerList">
                         <VolunteerList />
-                    </Route>
+                    </PrivateRoute>
                     <PrivateRoute path="/adminPanel/addEvent">
                         <AddEvent />
                     </PrivateRoute>
