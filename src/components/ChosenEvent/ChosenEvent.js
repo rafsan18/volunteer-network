@@ -37,7 +37,7 @@ const ChosenEvent = (props) => {
     const { title, selectedDate, img, _id } = props.ev;
 
     const cancelEvent = (id) => {
-        fetch(`http://localhost:5000/cancelEvent/${id}`, {
+        fetch(`https://vast-waters-03225.herokuapp.com/cancelEvent/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
@@ -47,7 +47,7 @@ const ChosenEvent = (props) => {
     };
     return (
         <div className="col-md-4">
-            <Card className={isCancelled ? `invisible` : `${classes.root}`}>
+            <Card className={isCancelled ? `d-none` : `${classes.root}`}>
                 <CardMedia
                     className={classes.cover}
                     image={img}

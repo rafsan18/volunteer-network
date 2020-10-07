@@ -8,13 +8,17 @@ const UserSelection = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     useEffect(() => {
-        fetch("http://localhost:5000/chosenEvent?email=" + loggedInUser.email, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                authorization: `Bearer ${sessionStorage.getItem("token")}`,
-            },
-        })
+        fetch(
+            "https://vast-waters-03225.herokuapp.com/chosenEvent?email=" +
+                loggedInUser.email,
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: `Bearer ${sessionStorage.getItem("token")}`,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((data) => setChosenEvent(data));
     }, []);

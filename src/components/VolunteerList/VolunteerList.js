@@ -7,7 +7,7 @@ const VolunteerList = () => {
     const [eventList, setEventList] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/adminPanel")
+        fetch("https://vast-waters-03225.herokuapp.com/adminPanel")
             .then((res) => res.json())
             .then((data) => {
                 setEventList(data);

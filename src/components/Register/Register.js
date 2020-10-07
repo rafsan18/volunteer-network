@@ -37,7 +37,7 @@ const Register = () => {
     const { email, name } = loggedInUser;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/event/${eventId}`)
+        fetch(`https://vast-waters-03225.herokuapp.com/event/${eventId}`)
             .then((res) => res.json())
             .then((data) => setEvent(data));
     }, [eventId]);
@@ -60,7 +60,7 @@ const Register = () => {
             img,
         };
 
-        fetch("http://localhost:5000/addChosenEvent", {
+        fetch("https://vast-waters-03225.herokuapp.com/addChosenEvent", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newRegistration),

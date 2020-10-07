@@ -8,7 +8,7 @@ const ListTable = (props) => {
     const [isDeleted, setIsDeleted] = useState(false);
 
     const handleDeleteBtn = (id) => {
-        fetch(`http://localhost:5000/deleteEvent/${id}`, {
+        fetch(`https://vast-waters-03225.herokuapp.com/deleteEvent/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

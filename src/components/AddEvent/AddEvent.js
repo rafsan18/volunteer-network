@@ -55,7 +55,7 @@ const AddEvent = () => {
             description,
             date,
         };
-        fetch("http://localhost:5000/addEvents", {
+        fetch("https://vast-waters-03225.herokuapp.com/addEvents", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
