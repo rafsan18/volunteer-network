@@ -34,7 +34,6 @@ const AddEvent = () => {
     const [date, setDate] = useState(new Date());
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [event, setEvent] = useState({});
     const history = useHistory();
 
     const handleDateChange = (date) => {
@@ -126,7 +125,7 @@ const AddEvent = () => {
                         color="primary"
                         className={classes.submitBtn}
                     >
-                        submit
+                        Submit
                     </Button>
                 </div>
             </div>
